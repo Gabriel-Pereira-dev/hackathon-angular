@@ -11,9 +11,14 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { RippleModule } from 'primeng/ripple';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { DialogModule } from 'primeng/dialog';
+import { InputNumberModule } from 'primeng/inputnumber'
+import {PasswordModule} from 'primeng/password'
+import {InputTextModule} from 'primeng/inputtext';
+import {InputMaskModule} from 'primeng/inputmask'
 
 
 import { AppComponent } from './app.component';
@@ -21,12 +26,14 @@ import { UsersComponent } from './users/users.component';
 import { UserService } from './service/user.service'
 import { APIInterceptorProvider } from './interceptors/apiinterceptor';
 import { UsersTableComponent } from './users-table/users-table.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     UsersTableComponent,
+    UserRegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -42,12 +49,18 @@ import { UsersTableComponent } from './users-table/users-table.component';
     ConfirmDialogModule,
     ToastModule,
     MessagesModule,
-    MessageModule
+    MessageModule,
+    DialogModule,
+    InputNumberModule,
+    PasswordModule,
+    InputTextModule,
+    InputMaskModule
   ],
   providers: [
     APIInterceptorProvider,
     UserService,
-    ConfirmationService
+    ConfirmationService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

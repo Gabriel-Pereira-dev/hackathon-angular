@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { User } from '../model/user';
 import { UserService } from '../service/user.service';
 
@@ -8,8 +8,9 @@ import { UserService } from '../service/user.service';
   styleUrls: ['./users-table.component.css']
 })
 export class UsersTableComponent implements OnInit {
-
+  userDialog = false
   users: User[] = []
+
 
   constructor(private userService: UserService) { }
 
@@ -17,6 +18,10 @@ export class UsersTableComponent implements OnInit {
     this.userService.listAll().subscribe(users => {
       this.users = users;
     })
+  }
+
+  openAddUserDialog(){
+    this.userDialog = true
   }
 
 }

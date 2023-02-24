@@ -1,0 +1,7 @@
+.p-col:not(:last-child){
+  margin-bottom: 30px;
+}
+
+.p-col:first-child{
+  margin-top: 15px;
+}

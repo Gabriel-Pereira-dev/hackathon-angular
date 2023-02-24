@@ -1,0 +1,88 @@
+<p-dialog [(visible)]="userDialog" [style]="{width: '450px'}" header="Informações do Usuário" [modal]="true" styleClass="p-fluid">
+  <ng-template pTemplate="content">
+    <div class="p-grid p-flex-column">
+      <div class="p-col">
+        <div class="box">
+          <span class="p-float-label">
+            <input id="nome" type="text" pInputText [(ngModel)]="user.nome">
+            <label for="nome">Nome</label>
+          </span>
+        </div>
+      </div>
+      <div class="p-col">
+        <div class="box">
+          <span class="p-float-label">
+            <input id="login" type="text" pInputText [(ngModel)]="user.login">
+            <label for="login">Login</label>
+          </span>
+        </div>
+      </div>
+      <div class="p-col">
+        <div class="box">
+          <span class="p-float-label">
+            <input id="senha" type="password" pInputText [(ngModel)]="user.senha">
+            <label for="senha">Senha</label>
+          </span>
+        </div>
+      </div>
+      <div class="p-col">
+        <div class="box">
+          <span class="p-float-label">
+            <input id="email" type="email" pInputText [(ngModel)]="user.email">
+            <label for="email">Email</label>
+          </span>
+        </div>
+      </div>
+      <div class="p-col">
+        <div class="box">
+          <span class="p-float-label">
+            <!-- <input id="data-nascimento" type="text" pInputText [(ngModel)]="user.dataNascimento"> -->
+            <p-inputMask id="data-nascimento" mask="99/99/9999" [(ngModel)]="user.dataNascimento" slotChar="dd/mm/yyyy"></p-inputMask>
+            <label for="data-nascimento">Data de Nascimento</label>
+
+          </span>
+        </div>
+      </div>
+
+
+
+
+    </div>
+      <!-- <div class="p-field">
+          <label for="nome">Nome</label>
+          <input type="text" pInputText id="nome" [(ngModel)]="user.nome" required autofocus />
+          <small class="p-invalid" *ngIf="submitted && !user.nome">Nome é obrigatório.</small>
+      </div>
+      <div class="p-field">
+        <label for="login">Login</label>
+        <input type="text" pInputText id="login" [(ngModel)]="user.login" required />
+        <small class="p-invalid" *ngIf="submitted && !user.login">Login é obrigatório.</small>
+    </div> -->
+    <!-- <div class="p-field">
+      <label for="nome">Senha</label>
+      <p-password [(ngModel)]="value4" id="senha" required>
+        <ng-template pTemplate="header">
+            <h6>Escolha uma senha</h6>
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <p-divider></p-divider>
+            <p class="mt-2">Regras</p>
+            <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+                <li>Uma letra minuscula</li>
+                <li>Uma letra maiuscula</li>
+                <li>Um número</li>
+                <li>Um caractere especial</li>
+            </ul>
+        </ng-template>
+      </p-password>
+      <small class="p-invalid" *ngIf="submitted && !user.senha">Senha é obrigatório.</small>
+    </div> -->
+
+
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+      <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="closeDialog()"></button>
+      <button pButton pRipple label="Salvar" icon="pi pi-check" class="p-button-text" (click)="save()"></button>
+  </ng-template>
+</p-dialog>

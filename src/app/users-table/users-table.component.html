@@ -1,8 +1,9 @@
 <div  class="card p-grid">
   <p-toolbar styleClass="p-mb-4">
     <ng-template pTemplate="left">
-        <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success p-mr-2"></button>
-    </ng-template>
+        <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openAddUserDialog()"></button>
+      {{ userDialog}}
+      </ng-template>
   </p-toolbar>
 
   <p-table #dt [value]="users" [rows]="10" [paginator]="true" dataKey="id"
@@ -46,3 +47,4 @@
 
   </p-table>
 </div>
+<app-user-registration [userDialog]="userDialog" (closeEvent)="userDialog = $event"></app-user-registration>
