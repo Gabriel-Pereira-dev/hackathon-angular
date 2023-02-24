@@ -7,12 +7,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
+import { UserService } from './service/user.service'
 import { APIInterceptorProvider } from './interceptors/apiinterceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,7 +22,7 @@ import { APIInterceptorProvider } from './interceptors/apiinterceptor';
     HttpClientModule,
     FormsModule
   ],
-  providers: [APIInterceptorProvider],
+  providers: [APIInterceptorProvider,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
