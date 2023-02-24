@@ -9,6 +9,12 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { RippleModule } from 'primeng/ripple';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
@@ -20,7 +26,7 @@ import { UsersTableComponent } from './users-table/users-table.component';
   declarations: [
     AppComponent,
     UsersComponent,
-    UsersTableComponent
+    UsersTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,8 +39,16 @@ import { UsersTableComponent } from './users-table/users-table.component';
     ButtonModule,
     SplitButtonModule,
     RippleModule,
+    ConfirmDialogModule,
+    ToastModule,
+    MessagesModule,
+    MessageModule
   ],
-  providers: [APIInterceptorProvider,UserService],
+  providers: [
+    APIInterceptorProvider,
+    UserService,
+    ConfirmationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
