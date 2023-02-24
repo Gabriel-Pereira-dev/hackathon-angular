@@ -1,0 +1,50 @@
+<div  class="card p-grid">
+  <p-toolbar styleClass="p-mb-4">
+    <ng-template pTemplate="left">
+        <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openAddUserDialog()"></button>
+      {{ userDialog}}
+      </ng-template>
+  </p-toolbar>
+
+  <p-table #dt [value]="users" [rows]="10" [paginator]="true" dataKey="id"
+    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} usuários" [showCurrentPageReport]="true">
+    <ng-template pTemplate="caption">
+        <div class="p-d-flex p-ai-center p-jc-between">
+            <h5 class="p-m-0">Usuários Cadastrados</h5>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="id">#<p-sortIcon field="id"></p-sortIcon></th>
+            <th pSortableColumn="nome">Nome <p-sortIcon field="nome"></p-sortIcon></th>
+            <th pSortableColumn="login">Login <p-sortIcon field="login"></p-sortIcon></th>
+            <th pSortableColumn="email">Email <p-sortIcon field="email"></p-sortIcon></th>
+            <th pSortableColumn="dataNascimento">Data de Nascimento <p-sortIcon field="dataNascimento"></p-sortIcon></th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+        <tr>
+            <td>{{user.id}}</td>
+            <td>{{user.nome}}</td>
+            <td>{{user.login}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.dataNascimento}}</td>
+            <td>
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="openAddUserDialog(user.id)"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteUser(user.id)" ></button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        <div class="p-d-flex p-ai-center p-jc-between">
+            Tem no total total {{users ? users.length : 0 }} usuários.
+        </div>
+    </ng-template>
+    <ng-template #emptymessage>
+      Não há usuários cadastrados.
+    </ng-template>
+
+  </p-table>
+</div>
+<app-user-registration [userDialog]="userDialog" (closeEvent)="userDialog = $event" [editUserId]="editUserId"></app-user-registration>
