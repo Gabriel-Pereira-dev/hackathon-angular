@@ -9,7 +9,9 @@ import { UserService } from '../service/user.service';
 })
 export class UsersTableComponent implements OnInit {
   userDialog = false
+
   users: User[] = []
+  editUserId?: number
 
 
   constructor(private userService: UserService) { }
@@ -20,8 +22,18 @@ export class UsersTableComponent implements OnInit {
     })
   }
 
-  openAddUserDialog(){
+  openAddUserDialog(id?: number){
+    console.log(id)
+    this.editUserId = id
     this.userDialog = true
+  }
+
+  deleteUser(id: number){
+    this.userService.delete(id).subscribe(() => {
+      this.userService.listAll().subscribe(users => {
+        this.users = users;
+      })
+    })
   }
 
 }

@@ -18,6 +18,18 @@ export class UserService {
     return this.$http.post<UserRegister>('usuario', user)
   }
 
+  update(user: UserRegister) {
+    return this.$http.put<UserRegister>('usuario', user)
+  }
+
+  findByid(id: number){
+    return this.$http.get<UserRegister>(`usuario/${id}`)
+  }
+
+  delete(id: number) {
+    return this.$http.delete(`usuario/${id}`)
+  }
+
 }
 
 
